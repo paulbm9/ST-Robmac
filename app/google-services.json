@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "236988979703",
+    "project_id": "st-robmac",
+    "storage_bucket": "st-robmac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236988979703:android:351d9761a3e67fa97a76f2",
+        "android_client_info": {
+          "package_name": "com.st.robmac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "236988979703-raig8j994917u720431jhgotuccuj9cs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdihpVV5d-e398rklZOo55dALSulKDXug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "236988979703-raig8j994917u720431jhgotuccuj9cs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
