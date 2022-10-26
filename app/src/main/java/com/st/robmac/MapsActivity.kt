@@ -1,6 +1,7 @@
 package com.st.robmac
 
 import android.content.pm.PackageManager
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -20,7 +21,7 @@ private lateinit var map: GoogleMap
 
 
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +40,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         createMarker()
+        map.setOnMyLocationButtonClickListener(this)
+        map.setOnMyLocationClickListener(this)
         enableLocation()
     }
 
@@ -95,4 +98,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        if (!::map.isInitialized) return
+        if(!isLocationPermissionGranted()){
+            map.isMyLocationEnabled = false
+            Toast.makeText(
+                this,
+                "Para activar la localizacion ve a ajustes y acepta los permisos",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    override fun onMyLocationButtonClick(): Boolean {
+        Toast.makeText(this, "Boton pulsado", Toast.LENGTH_SHORT).show()
+        return false
+    }
+
+    override fun onMyLocationClick(p0: Location) {
+        Toast.makeText(this, "Estas en ${p0.latitude}", Toast.LENGTH_SHORT).show()
+    }
 }
