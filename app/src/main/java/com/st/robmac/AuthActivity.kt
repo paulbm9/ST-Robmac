@@ -3,6 +3,7 @@ package com.st.robmac
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_auth.*
@@ -13,6 +14,8 @@ class AuthActivity : AppCompatActivity() {
         setContentView(R.layout.activity_auth)
 
         setup()
+
+
     }
 
     private fun setup() {
@@ -25,6 +28,7 @@ class AuthActivity : AppCompatActivity() {
                         ETpassword.text.toString()
                     ).addOnCompleteListener {
                         if (it.isSuccessful) {
+                            pbmain.setVisibility(View.VISIBLE)
                             showHome(it.result?.user?.email?:"", ProviderType.BASIC)
                         } else {
                             showAlert()
@@ -40,6 +44,7 @@ class AuthActivity : AppCompatActivity() {
                         ETpassword.text.toString()
                     ).addOnCompleteListener {
                         if (it.isSuccessful) {
+                            pbmain.setVisibility(View.VISIBLE)
                             showHome(it.result?.user?.email?:"", ProviderType.BASIC)
                         } else {
                             showAlert()
@@ -66,5 +71,9 @@ class AuthActivity : AppCompatActivity() {
         startActivity(homeIntent)
     }
 
+    override fun onResume() {
+        super.onResume()
+        pbmain.setVisibility(View.GONE)
+    }
 
 }
