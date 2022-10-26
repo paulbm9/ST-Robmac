@@ -15,11 +15,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
         createMapFragment()
+        title = "Los Olivos | Robmac"
     }
 
     private fun createMapFragment() {
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.fragmentMap) as SupportMapFragment
+        val mapFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentMap) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
@@ -30,8 +31,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun createMarker() {
         val coordinates = LatLng(-11.961275357326729, -77.06568023093887)
-        val marker: MarkerOptions =
-            MarkerOptions().position(coordinates).title("UCH")
+        val marker: MarkerOptions = MarkerOptions().position(coordinates).title("UCH")
         map.addMarker(marker)
     }
 }

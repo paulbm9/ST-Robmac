@@ -22,34 +22,30 @@ class AuthActivity : AppCompatActivity() {
         title = "Autenticacion"
         signUp.setOnClickListener {
             if (ETemail.text.isNotEmpty() && ETpassword.text.isNotEmpty()) {
-                FirebaseAuth.getInstance()
-                    .createUserWithEmailAndPassword(
-                        ETemail.text.toString(),
-                        ETpassword.text.toString()
-                    ).addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            pbmain.setVisibility(View.VISIBLE)
-                            showHome(it.result?.user?.email?:"", ProviderType.BASIC)
-                        } else {
-                            showAlert()
-                        }
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(
+                    ETemail.text.toString(), ETpassword.text.toString()
+                ).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        pbmain.setVisibility(View.VISIBLE)
+                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                    } else {
+                        showAlert()
                     }
+                }
             }
         }
         signIn.setOnClickListener {
             if (ETemail.text.isNotEmpty() && ETpassword.text.isNotEmpty()) {
-                FirebaseAuth.getInstance()
-                    .signInWithEmailAndPassword(
-                        ETemail.text.toString(),
-                        ETpassword.text.toString()
-                    ).addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            pbmain.setVisibility(View.VISIBLE)
-                            showHome(it.result?.user?.email?:"", ProviderType.BASIC)
-                        } else {
-                            showAlert()
-                        }
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                    ETemail.text.toString(), ETpassword.text.toString()
+                ).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        pbmain.setVisibility(View.VISIBLE)
+                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                    } else {
+                        showAlert()
                     }
+                }
             }
         }
     }
@@ -63,10 +59,10 @@ class AuthActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun showHome(email: String, provider: ProviderType){
+    private fun showHome(email: String, provider: ProviderType) {
         val homeIntent = Intent(this, HomeActivity::class.java).apply {
-         putExtra("email",email)
-         putExtra("provider",provider.name)
+            putExtra("email", email)
+            putExtra("provider", provider.name)
         }
         startActivity(homeIntent)
     }
