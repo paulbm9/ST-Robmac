@@ -2,6 +2,7 @@ package com.st.robmac
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -33,5 +34,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val coordinates = LatLng(-11.961275357326729, -77.06568023093887)
         val marker: MarkerOptions = MarkerOptions().position(coordinates).title("UCH")
         map.addMarker(marker)
+        map.animateCamera(
+            CameraUpdateFactory.newLatLngZoom(coordinates, 14f), 4000, null
+        )
     }
 }
