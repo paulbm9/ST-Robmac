@@ -20,7 +20,10 @@ class HomeActivity : AppCompatActivity() {
         val email: String? = bundle?.getString("email")
         val provider: String? = bundle?.getString("provider")
         setup(email ?: "", provider ?: "")
+
         swapMaps()
+        swapRegister()
+
     }
 
 
@@ -28,6 +31,10 @@ class HomeActivity : AppCompatActivity() {
         val mapsIntent = Intent(this, MapsActivity::class.java).apply {}
         startActivity(mapsIntent)
 
+    }
+    private fun showRegister(){
+        val regIntent = Intent(this,ReportActivity::class.java).apply{}
+        startActivity(regIntent)
     }
 
     private fun setup(email: String, provider: String) {
@@ -42,6 +49,10 @@ class HomeActivity : AppCompatActivity() {
 
     private fun swapMaps() {
         Reportar.setOnClickListener { showMaps() }
+    }
+
+    private fun swapRegister(){
+        Registrar.setOnClickListener { showRegister() }
     }
 
 }

@@ -63,8 +63,23 @@
         android:id="@+id/Reportar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:layout_marginBottom="68dp"
         android:backgroundTint="#F26A4B"
         android:text="Reportar"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/Registrar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:backgroundTint="#F26A4B"
+        android:text="Registrar"
         android:textColor="#ffffff"
         android:textSize="24sp"
         android:textStyle="bold"
