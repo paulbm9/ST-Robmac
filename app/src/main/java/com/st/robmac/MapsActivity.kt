@@ -11,17 +11,19 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.ktx.Firebase
 
 private lateinit var map: GoogleMap
 
 
-    const val REQUEST_CODE_LOCATION = 0
+const val REQUEST_CODE_LOCATION = 0
 
 
-
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
+    GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,16 +41,38 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        createMarker()
+        createMarkers()
         map.setOnMyLocationButtonClickListener(this)
         map.setOnMyLocationClickListener(this)
         enableLocation()
     }
 
-    private fun createMarker() {
+    private fun createMarkers() {
         val coordinates = LatLng(-11.961275357326729, -77.06568023093887)
-        val marker: MarkerOptions = MarkerOptions().position(coordinates).title("UCH")
+        val marker: MarkerOptions = MarkerOptions().position(coordinates).title("Peligro")
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.advertencia)
+            )
         map.addMarker(marker)
+        val coordinates2 = LatLng(-11.994911195270163, -77.06458207113788)
+        val marker2: MarkerOptions = MarkerOptions().position(coordinates2).title("Armas")
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.terrorista)
+            )
+        map.addMarker(marker2)
+        val coordinates3 = LatLng(-11.970205815468422, -77.06574078534287)
+        val marker3: MarkerOptions = MarkerOptions().position(coordinates3).title("Robo")
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.robo)
+            )
+        map.addMarker(marker3)
+        val coordinates4 = LatLng(-11.956582256503035, -77.07151289892988)
+        val marker4: MarkerOptions = MarkerOptions().position(coordinates4).title("Droga")
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.canabis)
+            )
+        map.addMarker(marker4)
+        val coordinates5 = LatLng(-11.979911578883124, -77.0643613503283)
+        val marker5: MarkerOptions = MarkerOptions().position(coordinates5).title("Prostitucion")
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.beso)
+            )
+        map.addMarker(marker5)
         map.animateCamera(
             CameraUpdateFactory.newLatLngZoom(coordinates, 14f), 4000, null
         )
@@ -94,14 +118,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
                     "Para activar la localizacion ve a ajustes y acepta los permisos",
                     Toast.LENGTH_SHORT
                 ).show()
-            }else ->{}
+            }
+            else -> {}
         }
     }
 
     override fun onResumeFragments() {
         super.onResumeFragments()
         if (!::map.isInitialized) return
-        if(!isLocationPermissionGranted()){
+        if (!isLocationPermissionGranted()) {
             map.isMyLocationEnabled = false
             Toast.makeText(
                 this,
@@ -117,6 +142,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     }
 
     override fun onMyLocationClick(p0: Location) {
-        Toast.makeText(this, "Estas en ${p0.latitude}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            this, "Estas en latitud: ${p0.latitude} longitud:${p0.longitude}", Toast.LENGTH_SHORT
+        ).show()
     }
 }
