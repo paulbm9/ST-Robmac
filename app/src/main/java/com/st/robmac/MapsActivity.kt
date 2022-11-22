@@ -137,7 +137,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     }
 
     override fun onMyLocationButtonClick(): Boolean {
-        Toast.makeText(this, "Boton pulsado", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "Boton pulsado", Toast.LENGTH_SHORT).show()
         return false
     }
 
