@@ -32,8 +32,9 @@ class HomeActivity : AppCompatActivity() {
         startActivity(mapsIntent)
 
     }
-    private fun showRegister(){
-        val regIntent = Intent(this,ReportActivity::class.java).apply{}
+
+    private fun showRegister() {
+        val regIntent = Intent(this, ReportActivity::class.java).apply {}
         startActivity(regIntent)
     }
 
@@ -51,7 +52,7 @@ class HomeActivity : AppCompatActivity() {
         Reportar.setOnClickListener { showMaps() }
     }
 
-    private fun swapRegister(){
+    private fun swapRegister() {
         Registrar.setOnClickListener { showRegister() }
     }
 

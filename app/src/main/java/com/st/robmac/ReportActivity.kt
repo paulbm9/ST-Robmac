@@ -14,15 +14,15 @@ import com.st.robmac.adapter.ReportsAdapter
 import com.st.robmac.model.ReporteData
 import kotlinx.android.synthetic.main.activity_report.*
 
-class ReportActivity :AppCompatActivity(){
-    lateinit var mDataBase:DatabaseReference
+class ReportActivity : AppCompatActivity() {
+    lateinit var mDataBase: DatabaseReference
     private lateinit var reporList: ArrayList<ReporteData>
     private lateinit var mAdapter: ReportsAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report)
         reporList = ArrayList()
-        mAdapter= ReportsAdapter(this,reporList)
+        mAdapter = ReportsAdapter(this, reporList)
         recyclerReport.layoutManager = LinearLayoutManager(this)
         recyclerReport.setHasFixedSize(true)
         //recyclerReport.adapter = mAdapter
@@ -45,8 +45,7 @@ class ReportActivity :AppCompatActivity(){
 
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(
-                    this@ReportActivity,
-                    error.message, Toast.LENGTH_SHORT
+                    this@ReportActivity, error.message, Toast.LENGTH_SHORT
                 ).show()
             }
 

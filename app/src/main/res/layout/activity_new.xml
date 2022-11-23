@@ -1,69 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="isData"
             type="com.st.robmac.model.ReporteData" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".view.NewActivity">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/img"
-                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
                     android:layout_marginBottom="15dp"
                     android:imageUrl="@{isData.img}"
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"/>
+                    android:scaleType="fitXY" />
+
                 <View
-                    android:background="@android:color/darker_gray"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp" />
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
                 <TextView
                     android:id="@+id/titleR"
-                    android:text="@{isData.title}"
-                    android:gravity="center"
-                    android:textStyle="bold|normal"
-                    android:textSize="22sp"
-                    android:elevation="15dp"
-                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:background="#F26A4B"
+                    android:elevation="15dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@{isData.title}"
                     android:textColor="@color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="22sp"
+                    android:textStyle="bold|normal" />
+
                 <View
-                    android:background="@android:color/darker_gray"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
                 <TextView
                     android:id="@+id/detail"
-                    android:text="@{isData.detail}"
-                    android:layout_marginTop="15dp"
-                    android:textSize="16sp"
-                    android:gravity="start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginRight="10dp"
+                    android:gravity="start"
+                    android:text="@{isData.detail}"
                     android:textColor="@color/black"
-                    android:textStyle="bold|normal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold|normal" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

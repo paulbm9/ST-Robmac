@@ -49,28 +49,29 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     private fun createMarkers() {
         val coordinates = LatLng(-11.961275357326729, -77.06568023093887)
-        val marker: MarkerOptions = MarkerOptions().position(coordinates).title("Peligro")
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.advertencia)
-            )
+        val marker: MarkerOptions = MarkerOptions().position(coordinates).title("Peligro").icon(
+            BitmapDescriptorFactory.fromResource(R.drawable.advertencia)
+        )
         map.addMarker(marker)
         val coordinates2 = LatLng(-11.994911195270163, -77.06458207113788)
-        val marker2: MarkerOptions = MarkerOptions().position(coordinates2).title("Armas")
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.terrorista)
-            )
+        val marker2: MarkerOptions = MarkerOptions().position(coordinates2).title("Armas").icon(
+            BitmapDescriptorFactory.fromResource(R.drawable.terrorista)
+        )
         map.addMarker(marker2)
         val coordinates3 = LatLng(-11.970205815468422, -77.06574078534287)
-        val marker3: MarkerOptions = MarkerOptions().position(coordinates3).title("Robo")
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.robo)
-            )
+        val marker3: MarkerOptions = MarkerOptions().position(coordinates3).title("Robo").icon(
+            BitmapDescriptorFactory.fromResource(R.drawable.robo)
+        )
         map.addMarker(marker3)
         val coordinates4 = LatLng(-11.956582256503035, -77.07151289892988)
-        val marker4: MarkerOptions = MarkerOptions().position(coordinates4).title("Droga")
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.canabis)
-            )
+        val marker4: MarkerOptions = MarkerOptions().position(coordinates4).title("Droga").icon(
+            BitmapDescriptorFactory.fromResource(R.drawable.canabis)
+        )
         map.addMarker(marker4)
         val coordinates5 = LatLng(-11.979911578883124, -77.0643613503283)
-        val marker5: MarkerOptions = MarkerOptions().position(coordinates5).title("Prostitucion")
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.beso)
+        val marker5: MarkerOptions =
+            MarkerOptions().position(coordinates5).title("Prostitucion").icon(
+                BitmapDescriptorFactory.fromResource(R.drawable.beso)
             )
         map.addMarker(marker5)
         map.animateCamera(
